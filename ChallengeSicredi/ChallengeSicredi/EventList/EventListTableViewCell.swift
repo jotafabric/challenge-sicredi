@@ -18,7 +18,6 @@ class EventListTableViewCell: UITableViewCell {
     
     var event: Event? {
         didSet{
-            
             titleLabel.text = event?.title
             dateLabel.text = event?.date?.intToDateTime?.dateAndTimetoString()
             priceLabel.text = event?.price?.currencyValue

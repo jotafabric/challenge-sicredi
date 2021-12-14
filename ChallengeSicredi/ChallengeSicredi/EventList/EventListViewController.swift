@@ -12,11 +12,12 @@ protocol EventListDisplayLogic: AnyObject {
     func errorLoadingEvents(_ error: String)
 }
 
-class ViewController: UIViewController {
+class EventListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var interactor: EventListBusinessLogic?
+    var router: (NSObjectProtocol & EventListRoutingLogic & EventListDataPassing)?
     
     var viewModel: [Event]? {
         didSet{
@@ -26,18 +27,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         let viewController = self
         let interactor = EventListInteractor()
         let presenter = EventListPresenter()
-        //let router = EventListRouter()
+        let router = EventListRouter()
         
         viewController.interactor = interactor
-        //viewController.router = router
+        viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
-        //router.viewController = viewController
-        //router.dataStore = interactor
+        router.viewController = viewController
+        router.dataStore = interactor
         
         interactor.fetchList()
         
@@ -48,11 +49,9 @@ class ViewController: UIViewController {
     func setupViewFromViewModel() {
         tableView.reloadData()
     }
-
-
 }
 
-extension ViewController: EventListDisplayLogic {
+extension EventListViewController: EventListDisplayLogic {
     func displayEvents(viewModel: [Event]) {
         self.viewModel = viewModel
         //dismissLoading()
@@ -64,7 +63,7 @@ extension ViewController: EventListDisplayLogic {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.count ?? 0
     }
@@ -77,6 +76,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let event = viewModel?[indexPath.row]{
+            router?.routeToEventDetail(model: event)
+        }
     }
 }
 

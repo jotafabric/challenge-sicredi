@@ -33,13 +33,39 @@
 		A04CA66C2768323300466DCE /* Extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04CA6692768323300466DCE /* Extension+Int.swift */; };
 		A06929DE2767F7B400FCD658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929DD2767F7B400FCD658 /* AppDelegate.swift */; };
 		A06929E02767F7B400FCD658 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929DF2767F7B400FCD658 /* SceneDelegate.swift */; };
-		A06929E22767F7B400FCD658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929E12767F7B400FCD658 /* ViewController.swift */; };
+		A06929E22767F7B400FCD658 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929E12767F7B400FCD658 /* EventListViewController.swift */; };
 		A06929E52767F7B400FCD658 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06929E32767F7B400FCD658 /* Main.storyboard */; };
 		A06929E72767F7B500FCD658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06929E62767F7B500FCD658 /* Assets.xcassets */; };
 		A06929EA2767F7B500FCD658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06929E82767F7B500FCD658 /* LaunchScreen.storyboard */; };
 		A06929F52767F7B500FCD658 /* ChallengeSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929F42767F7B500FCD658 /* ChallengeSicrediTests.swift */; };
 		A06929FF2767F7B500FCD658 /* ChallengeSicrediUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06929FE2767F7B500FCD658 /* ChallengeSicrediUITests.swift */; };
 		A0692A012767F7B500FCD658 /* ChallengeSicrediUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0692A002767F7B500FCD658 /* ChallengeSicrediUITestsLaunchTests.swift */; };
+		A0B648492768FCD200D75F64 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648482768FCD200D75F64 /* EventDetailViewController.swift */; };
+		A0B6484A2768FCD200D75F64 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648482768FCD200D75F64 /* EventDetailViewController.swift */; };
+		A0B6484B2768FCD200D75F64 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648482768FCD200D75F64 /* EventDetailViewController.swift */; };
+		A0B6484D2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6484C2768FD0D00D75F64 /* EventDetailRouter.swift */; };
+		A0B6484E2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6484C2768FD0D00D75F64 /* EventDetailRouter.swift */; };
+		A0B6484F2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6484C2768FD0D00D75F64 /* EventDetailRouter.swift */; };
+		A0B648512768FF0A00D75F64 /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648502768FF0A00D75F64 /* EventListRouter.swift */; };
+		A0B648522768FF0A00D75F64 /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648502768FF0A00D75F64 /* EventListRouter.swift */; };
+		A0B648532768FF0A00D75F64 /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648502768FF0A00D75F64 /* EventListRouter.swift */; };
+		A0B648552769034C00D75F64 /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648542769034C00D75F64 /* EventDetailInteractor.swift */; };
+		A0B648562769034D00D75F64 /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648542769034C00D75F64 /* EventDetailInteractor.swift */; };
+		A0B648572769034D00D75F64 /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648542769034C00D75F64 /* EventDetailInteractor.swift */; };
+		A0B6485827692C9400D75F64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06929E32767F7B400FCD658 /* Main.storyboard */; };
+		A0B6485927692C9400D75F64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06929E32767F7B400FCD658 /* Main.storyboard */; };
+		A0B6485B27692D0800D75F64 /* EventCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485A27692D0800D75F64 /* EventCheckinViewController.swift */; };
+		A0B6485C27692D0800D75F64 /* EventCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485A27692D0800D75F64 /* EventCheckinViewController.swift */; };
+		A0B6485D27692D0800D75F64 /* EventCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485A27692D0800D75F64 /* EventCheckinViewController.swift */; };
+		A0B6485F2769317F00D75F64 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485E2769317F00D75F64 /* EventDetailPresenter.swift */; };
+		A0B648602769317F00D75F64 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485E2769317F00D75F64 /* EventDetailPresenter.swift */; };
+		A0B648612769317F00D75F64 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6485E2769317F00D75F64 /* EventDetailPresenter.swift */; };
+		A0B648642769330300D75F64 /* EventDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648632769330300D75F64 /* EventDetailModels.swift */; };
+		A0B648652769330300D75F64 /* EventDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648632769330300D75F64 /* EventDetailModels.swift */; };
+		A0B648662769330300D75F64 /* EventDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B648632769330300D75F64 /* EventDetailModels.swift */; };
+		A0B6486827694C9000D75F64 /* EventDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6486727694C9000D75F64 /* EventDetailWorker.swift */; };
+		A0B6486927694C9000D75F64 /* EventDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6486727694C9000D75F64 /* EventDetailWorker.swift */; };
+		A0B6486A27694C9000D75F64 /* EventDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6486727694C9000D75F64 /* EventDetailWorker.swift */; };
 		AF1330440F9DA421D8E6A739 /* Pods_ChallengeSicrediTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 003D4EF947C1C86E5C6748EE /* Pods_ChallengeSicrediTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +101,7 @@
 		A06929DA2767F7B400FCD658 /* ChallengeSicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeSicredi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06929DD2767F7B400FCD658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06929DF2767F7B400FCD658 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A06929E12767F7B400FCD658 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A06929E12767F7B400FCD658 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		A06929E42767F7B400FCD658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A06929E62767F7B500FCD658 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A06929E92767F7B500FCD658 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -85,6 +111,14 @@
 		A06929FA2767F7B500FCD658 /* ChallengeSicrediUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeSicrediUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06929FE2767F7B500FCD658 /* ChallengeSicrediUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSicrediUITests.swift; sourceTree = "<group>"; };
 		A0692A002767F7B500FCD658 /* ChallengeSicrediUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSicrediUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0B648482768FCD200D75F64 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		A0B6484C2768FD0D00D75F64 /* EventDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouter.swift; sourceTree = "<group>"; };
+		A0B648502768FF0A00D75F64 /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
+		A0B648542769034C00D75F64 /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
+		A0B6485A27692D0800D75F64 /* EventCheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCheckinViewController.swift; sourceTree = "<group>"; };
+		A0B6485E2769317F00D75F64 /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
+		A0B648632769330300D75F64 /* EventDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailModels.swift; sourceTree = "<group>"; };
+		A0B6486727694C9000D75F64 /* EventDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailWorker.swift; sourceTree = "<group>"; };
 		A1159A2919ABD4129A73F4F2 /* Pods-ChallengeSicredi-ChallengeSicrediUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeSicredi-ChallengeSicrediUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChallengeSicredi-ChallengeSicrediUITests/Pods-ChallengeSicredi-ChallengeSicrediUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B69881272B273D96EFF85DA0 /* Pods-ChallengeSicredi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeSicredi.debug.xcconfig"; path = "Target Support Files/Pods-ChallengeSicredi/Pods-ChallengeSicredi.debug.xcconfig"; sourceTree = "<group>"; };
 		BE80FB26AC69E14926E5E3A4 /* Pods-ChallengeSicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeSicredi.release.xcconfig"; path = "Target Support Files/Pods-ChallengeSicredi/Pods-ChallengeSicredi.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,16 +178,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A04CA65C2768222D00466DCE /* List */ = {
+		A04CA65C2768222D00466DCE /* EventList */ = {
 			isa = PBXGroup;
 			children = (
 				A04CA64C2767FA8500466DCE /* Event.swift */,
-				A04CA6502767FDFA00466DCE /* EventListWorker.swift */,
 				A04CA6542767FE9F00466DCE /* EventListInteractor.swift */,
 				A04CA6582768000000466DCE /* EventListPresenter.swift */,
+				A0B648502768FF0A00D75F64 /* EventListRouter.swift */,
 				A04CA65D2768261D00466DCE /* EventListTableViewCell.swift */,
+				A06929E12767F7B400FCD658 /* EventListViewController.swift */,
+				A04CA6502767FDFA00466DCE /* EventListWorker.swift */,
 			);
-			path = List;
+			path = EventList;
 			sourceTree = "<group>";
 		};
 		A04CA65F27682FFA00466DCE /* Extensions */ = {
@@ -199,15 +235,15 @@
 		A06929DC2767F7B400FCD658 /* ChallengeSicredi */ = {
 			isa = PBXGroup;
 			children = (
-				A06929DD2767F7B400FCD658 /* AppDelegate.swift */,
+				A0B648462768FB8900D75F64 /* Application */,
+				A0B648622769318800D75F64 /* EventCheckin */,
+				A0B648472768FC6100D75F64 /* EventDetails */,
+				A04CA65C2768222D00466DCE /* EventList */,
 				A04CA65F27682FFA00466DCE /* Extensions */,
 				A06929EB2767F7B500FCD658 /* Info.plist */,
 				A06929E82767F7B500FCD658 /* LaunchScreen.storyboard */,
-				A04CA65C2768222D00466DCE /* List */,
 				A06929E32767F7B400FCD658 /* Main.storyboard */,
 				A04CA6602768300F00466DCE /* Resources */,
-				A06929DF2767F7B400FCD658 /* SceneDelegate.swift */,
-				A06929E12767F7B400FCD658 /* ViewController.swift */,
 			);
 			path = ChallengeSicredi;
 			sourceTree = "<group>";
@@ -227,6 +263,36 @@
 				A0692A002767F7B500FCD658 /* ChallengeSicrediUITestsLaunchTests.swift */,
 			);
 			path = ChallengeSicrediUITests;
+			sourceTree = "<group>";
+		};
+		A0B648462768FB8900D75F64 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A06929DD2767F7B400FCD658 /* AppDelegate.swift */,
+				A06929DF2767F7B400FCD658 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A0B648472768FC6100D75F64 /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A0B648482768FCD200D75F64 /* EventDetailViewController.swift */,
+				A0B6484C2768FD0D00D75F64 /* EventDetailRouter.swift */,
+				A0B648542769034C00D75F64 /* EventDetailInteractor.swift */,
+				A0B6485E2769317F00D75F64 /* EventDetailPresenter.swift */,
+				A0B648632769330300D75F64 /* EventDetailModels.swift */,
+				A0B6486727694C9000D75F64 /* EventDetailWorker.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		A0B648622769318800D75F64 /* EventCheckin */ = {
+			isa = PBXGroup;
+			children = (
+				A0B6485A27692D0800D75F64 /* EventCheckinViewController.swift */,
+			);
+			path = EventCheckin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6485927692C9400D75F64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6485827692C9400D75F64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,16 +537,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A04CA66A2768323300466DCE /* Extension+Int.swift in Sources */,
+				A0B648642769330300D75F64 /* EventDetailModels.swift in Sources */,
 				A04CA65E2768261D00466DCE /* EventListTableViewCell.swift in Sources */,
+				A0B6485B27692D0800D75F64 /* EventCheckinViewController.swift in Sources */,
 				A04CA64D2767FA8500466DCE /* Event.swift in Sources */,
 				A04CA6552767FE9F00466DCE /* EventListInteractor.swift in Sources */,
 				A04CA6622768309000466DCE /* Extension+Date.swift in Sources */,
+				A0B6485F2769317F00D75F64 /* EventDetailPresenter.swift in Sources */,
+				A0B6484D2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */,
 				A04CA666276830B400466DCE /* Extension+Double.swift in Sources */,
+				A0B648492768FCD200D75F64 /* EventDetailViewController.swift in Sources */,
 				A04CA6512767FDFA00466DCE /* EventListWorker.swift in Sources */,
+				A0B6486827694C9000D75F64 /* EventDetailWorker.swift in Sources */,
 				A04CA6592768000000466DCE /* EventListPresenter.swift in Sources */,
-				A06929E22767F7B400FCD658 /* ViewController.swift in Sources */,
+				A06929E22767F7B400FCD658 /* EventListViewController.swift in Sources */,
 				A06929DE2767F7B400FCD658 /* AppDelegate.swift in Sources */,
 				A06929E02767F7B400FCD658 /* SceneDelegate.swift in Sources */,
+				A0B648512768FF0A00D75F64 /* EventListRouter.swift in Sources */,
+				A0B648552769034C00D75F64 /* EventDetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,12 +563,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A04CA667276830B400466DCE /* Extension+Double.swift in Sources */,
+				A0B6486927694C9000D75F64 /* EventDetailWorker.swift in Sources */,
 				A04CA66B2768323300466DCE /* Extension+Int.swift in Sources */,
+				A0B648562769034D00D75F64 /* EventDetailInteractor.swift in Sources */,
 				A04CA64E2767FA8500466DCE /* Event.swift in Sources */,
+				A0B648652769330300D75F64 /* EventDetailModels.swift in Sources */,
+				A0B6484A2768FCD200D75F64 /* EventDetailViewController.swift in Sources */,
 				A04CA6562767FE9F00466DCE /* EventListInteractor.swift in Sources */,
+				A0B6485C27692D0800D75F64 /* EventCheckinViewController.swift in Sources */,
 				A04CA65A2768000000466DCE /* EventListPresenter.swift in Sources */,
 				A04CA6632768309000466DCE /* Extension+Date.swift in Sources */,
+				A0B648522768FF0A00D75F64 /* EventListRouter.swift in Sources */,
+				A0B648602769317F00D75F64 /* EventDetailPresenter.swift in Sources */,
 				A04CA6522767FDFA00466DCE /* EventListWorker.swift in Sources */,
+				A0B6484E2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */,
 				A06929F52767F7B500FCD658 /* ChallengeSicrediTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,14 +585,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6485D27692D0800D75F64 /* EventCheckinViewController.swift in Sources */,
 				A04CA6532767FDFA00466DCE /* EventListWorker.swift in Sources */,
+				A0B6486A27694C9000D75F64 /* EventDetailWorker.swift in Sources */,
 				A0692A012767F7B500FCD658 /* ChallengeSicrediUITestsLaunchTests.swift in Sources */,
 				A04CA66C2768323300466DCE /* Extension+Int.swift in Sources */,
 				A04CA6642768309000466DCE /* Extension+Date.swift in Sources */,
 				A04CA6572767FEA000466DCE /* EventListInteractor.swift in Sources */,
+				A0B648572769034D00D75F64 /* EventDetailInteractor.swift in Sources */,
 				A04CA668276830B400466DCE /* Extension+Double.swift in Sources */,
+				A0B6484B2768FCD200D75F64 /* EventDetailViewController.swift in Sources */,
+				A0B648532768FF0A00D75F64 /* EventListRouter.swift in Sources */,
+				A0B6484F2768FD0D00D75F64 /* EventDetailRouter.swift in Sources */,
+				A0B648662769330300D75F64 /* EventDetailModels.swift in Sources */,
 				A04CA64F2767FA8500466DCE /* Event.swift in Sources */,
 				A06929FF2767F7B500FCD658 /* ChallengeSicrediUITests.swift in Sources */,
+				A0B648612769317F00D75F64 /* EventDetailPresenter.swift in Sources */,
 				A04CA65B2768000000466DCE /* EventListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
