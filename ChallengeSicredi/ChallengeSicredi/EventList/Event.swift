@@ -37,7 +37,6 @@ class Event: Mappable {
 }
 
 class Person: Mappable {
-    var eventId: String?
     var name: String?
     var email: String?
     
@@ -45,7 +44,6 @@ class Person: Mappable {
     required init?(map: Map) {}
     
     func mapping(map: Map) {
-        eventId = map.JSON["eventId"] as? String
         name = map.JSON["name"] as? String
         email = map.JSON["email"] as? String
     }

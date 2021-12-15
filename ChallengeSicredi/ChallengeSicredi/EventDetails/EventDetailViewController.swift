@@ -97,7 +97,7 @@ class EventDetailViewController: UIViewController {
     }
     
     @IBAction func tapCheckinButton(_ sender: Any) {
-        router?.routeToEventCheckin()
+        router?.routeToEventCheckin(eventId: viewModel!.eventId)
     }
     
 }

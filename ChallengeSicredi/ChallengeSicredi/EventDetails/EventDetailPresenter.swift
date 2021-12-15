@@ -24,8 +24,9 @@ class EventDetailPresenter: EventDetailPresantationLogic {
         let date = event.date?.intToDateTime?.dateAndTimetoString() ?? ""
         let imageUrl = event.image ?? ""
         let location = ""
+        let eventId = event.id ?? ""
         
-        let viewModel = EventDetailModels.ViewModel(description: description, title: title, price: price, date: date, location: location, imageUrl: imageUrl)
+        let viewModel = EventDetailModels.ViewModel(eventId: eventId, description: description, title: title, price: price, date: date, location: location, imageUrl: imageUrl)
         
         viewController?.displayEventDetails(viewModel: viewModel)
     }

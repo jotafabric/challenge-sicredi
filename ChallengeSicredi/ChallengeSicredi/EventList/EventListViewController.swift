@@ -10,11 +10,13 @@ import UIKit
 protocol EventListDisplayLogic: AnyObject {
     func displayEvents(viewModel: [Event])
     func errorLoadingEvents(_ error: String)
+
 }
 
 class EventListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var interactor: EventListBusinessLogic?
     var router: (NSObjectProtocol & EventListRoutingLogic & EventListDataPassing)?
@@ -44,22 +46,40 @@ class EventListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        showLoading()
+        
+        tableView.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationItem.title = "Challenge Sicredi"
     }
     
     func setupViewFromViewModel() {
         tableView.reloadData()
     }
+    
+    func showLoading(){
+        loadingIndicator.isHidden = false
+    }
+    
+    func dismissLoadging(){
+        loadingIndicator.isHidden = true
+    }
 }
 
 extension EventListViewController: EventListDisplayLogic {
+    
     func displayEvents(viewModel: [Event]) {
         self.viewModel = viewModel
-        //dismissLoading()
+        tableView.isHidden = false
+        dismissLoadging()
     }
     
     func errorLoadingEvents(_ error: String) {
         //view.makeToast(error)
-        //dismissLoading()
+        dismissLoadging()
     }
 }
 

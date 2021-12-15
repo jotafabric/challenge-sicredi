@@ -11,6 +11,7 @@ import UIKit
 enum EventDetailModels {
     
     struct ViewModel {
+        var eventId: String
         var description: String
         var title:String
         var price: String
