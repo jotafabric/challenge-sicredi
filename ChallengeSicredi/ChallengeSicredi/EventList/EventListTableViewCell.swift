@@ -19,7 +19,7 @@ class EventListTableViewCell: UITableViewCell {
     var event: Event? {
         didSet{
             titleLabel.text = event?.title
-            dateLabel.text = event?.date?.intToDateTime?.dateAndTimetoString()
+            dateLabel.text = "Quando: \(event?.date?.intToDateTime?.dateAndTimetoString() ?? "N/A")"
             priceLabel.text = event?.price?.currencyValue
             
             img.kf.setImage(with: URL(string: event!.image!), placeholder: UIImage(named: "eventImageDefault"), options: nil, progressBlock: nil, completionHandler: nil)

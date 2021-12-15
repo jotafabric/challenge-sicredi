@@ -10,6 +10,7 @@ import UIKit
 
 protocol EventDetailRoutingLogic {
     func routeToEventCheckin(eventId: String)
+    func routeToShareEvent(title: String, address: String, date: String)
 }
 
 protocol EventDetailDataPassing {
@@ -17,7 +18,7 @@ protocol EventDetailDataPassing {
 }
 
 class EventDetailRouter: NSObject, EventDetailRoutingLogic, EventDetailDataPassing {
-
+    
     weak var viewController: EventDetailViewController?
     var dataStore: EventDetailDataStore?
     
@@ -33,6 +34,12 @@ class EventDetailRouter: NSObject, EventDetailRoutingLogic, EventDetailDataPassi
             
             viewController?.present(nextViewController, animated: true, completion: nil)
         }
+    }
+    
+    func routeToShareEvent(title: String, address: String, date: String) {
+        let items = [title, address, date]
+        let action = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        viewController?.present(action, animated: true)
     }
     
 }

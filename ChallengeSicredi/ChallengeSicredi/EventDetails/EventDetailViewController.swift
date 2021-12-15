@@ -29,6 +29,7 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor?.startFlow()
+        setupView()
     }
     
     var viewModel: EventDetailModels.ViewModel?{
@@ -81,10 +82,15 @@ class EventDetailViewController: UIViewController {
         return label
     }()
     
+    func setupView(){
+        let shareBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tapShareBarItem))
+        self.navigationItem.rightBarButtonItem  = shareBarButtonItem
+    }
+    
     func setupViewModel() {
         titleLabel.text = viewModel?.title
         descriptionText.text = viewModel?.description
-        dateLabel.text = "Data: \(viewModel?.date ?? "")"
+        dateLabel.text = "Quando: \(viewModel?.date ?? "")"
         priceLabel.text = viewModel?.price
         
         image.kf.setImage(with: URL(string: viewModel!.imageUrl), placeholder: UIImage(named: "eventImageDefault"), options: nil, progressBlock: nil, completionHandler: nil)
@@ -100,16 +106,20 @@ class EventDetailViewController: UIViewController {
         router?.routeToEventCheckin(eventId: viewModel!.eventId)
     }
     
+    @objc func tapShareBarItem(){
+        router?.routeToShareEvent(title: titleLabel.text!, address: addressLabel.text!, date: dateLabel.text!)
+    }
+    
 }
 
 extension EventDetailViewController: EventDetailDisplayLogic {
     
     func displayNoAddress() {
-        self.viewModelAddress = "Local: N/A"
+        self.viewModelAddress = "Onde: N/A"
     }
     
     func displayAddress(_ address: String) {
-        self.viewModelAddress = "Local: \(address)"
+        self.viewModelAddress = "Onde: \(address)"
     }
     
     func displayEventDetails(viewModel: EventDetailModels.ViewModel) {
