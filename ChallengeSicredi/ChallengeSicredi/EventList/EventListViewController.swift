@@ -84,8 +84,12 @@ extension EventListViewController: EventListDisplayLogic {
     }
     
     func errorLoadingEvents(_ error: String) {
-        //view.makeToast(error)
         dismissLoadging()
+        let alert = UIAlertController(title:"Ops...", message:"Ocorreu um problema ao obter os eventos", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tentar Novamente",
+                                      style: .default,
+                                      handler: {(alert: UIAlertAction!) in self.presenter?.presentationFetchList()}))
+        self.present(alert, animated:true, completion:nil)
     }
 }
 

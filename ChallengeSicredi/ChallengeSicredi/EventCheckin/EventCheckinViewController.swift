@@ -97,11 +97,20 @@ extension EventCheckinViewController: EventCheckinDisplayLogic {
     }
     
     func displayEventCheckinSuccess() {
-        presenter?.presentationRouteToCheckinSuccess()
+        
+        let alert = UIAlertController(title:"Oba!", message:"Check-in realizado. Te esperamos nos evento!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default,
+                                      handler: {(alert: UIAlertAction!) in self.presenter?.presentationRouteToCheckinSuccess() }))
+        self.present(alert, animated:true, completion:nil)
     }
     
     func displayEventCheckInFailure() {
-        
+        let alert = UIAlertController(title:"Ops...", message:"Ocorreu um problema ao realizar o seu check-in no evento.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK",
+                                      style: .default,
+                                      handler: {(alert: UIAlertAction!) -> Void in }))
+        self.present(alert, animated:true, completion:nil)
     }
     
     func displayValueFieldsValid() {
