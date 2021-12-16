@@ -10,7 +10,6 @@ import Foundation
 protocol EventCheckinBusinessLogic {
     func startFlow()
     func doPostCheckin(model: EventCheckinModel.ViewModel)
-    func validateFields(name: String, email: String)
 }
 
 protocol EventCheckinDataSource {
@@ -33,14 +32,6 @@ class EventCheckinInteractor: EventCheckinBusinessLogic, EventCheckinDataSource 
             self.presenter?.presentCheckinSucces()
         } failure: { error in
             self.presenter?.presentCheckinFailure()
-        }
-    }
-    
-    func validateFields(name: String, email: String) {
-        if name.isEmpty || email.isEmpty {
-            presenter?.presentValueFieldInvalid()
-        } else {
-            presenter?.presentValueFieldsValid()
         }
     }
 }

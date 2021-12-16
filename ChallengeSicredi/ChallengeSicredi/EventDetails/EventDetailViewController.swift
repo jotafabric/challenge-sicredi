@@ -23,14 +23,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    var interactor: EventDetailBusinessLogic?
-    var router: (NSObjectProtocol & EventDetailRoutingLogic & EventDetailDataPassing)?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        interactor?.startFlow()
-        setupView()
-    }
+    var presenter: (NSObjectProtocol & EventDetailPresantationLogic & EventDetailDataPassing)?
     
     var viewModel: EventDetailModels.ViewModel?{
         didSet{
@@ -44,7 +37,15 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    // MARK: Object lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.presentationStarFlow()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupView()
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -61,14 +62,16 @@ class EventDetailViewController: UIViewController {
         let presenter = EventDetailPresenter()
         let router = EventDetailRouter()
         
-        viewController.interactor = interactor
-        viewController.router = router
+        viewController.presenter = presenter
+        
+        presenter.viewController = viewController
+        presenter.interactor = interactor
+        presenter.dataStore = interactor
+        presenter.router = router
         
         interactor.presenter = presenter
-        presenter.viewController = viewController
         
         router.viewController = viewController
-        router.dataStore = interactor
     }
     
     lazy var titleLabel: UILabel = {
@@ -95,7 +98,7 @@ class EventDetailViewController: UIViewController {
         
         image.kf.setImage(with: URL(string: viewModel!.imageUrl), placeholder: UIImage(named: "eventImageDefault"), options: nil, progressBlock: nil, completionHandler: nil)
         
-        interactor?.getAddress()
+        presenter?.presentationGetAddress()
     }
     
     func setupViewModelAddress(){
@@ -103,11 +106,12 @@ class EventDetailViewController: UIViewController {
     }
     
     @IBAction func tapCheckinButton(_ sender: Any) {
-        router?.routeToEventCheckin(eventId: viewModel!.eventId)
+        presenter?.presentationRouteToEventCheckin(eventId: viewModel!.eventId)
     }
     
     @objc func tapShareBarItem(){
-        router?.routeToShareEvent(title: titleLabel.text!, address: addressLabel.text!, date: dateLabel.text!)
+        let items = [titleLabel.text!, addressLabel.text!, dateLabel.text!]
+        presenter?.presentationRouteToShareEvent(items: items)
     }
     
 }

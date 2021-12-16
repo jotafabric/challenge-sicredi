@@ -8,18 +8,36 @@
 import Foundation
 
 protocol EventCheckinPresentationLogic {
+    func presentationStarFlow()
     func presentCheckin(eventId: String)
+    func presentationDoCheckin(model: EventCheckinModel.ViewModel)
     func presentCheckinSucces()
-    func presentCheckinFailure()
-    func presentValueFieldsValid()
-    func presentValueFieldInvalid()
+    func presentCheckinFailure()    
+    func presentationValidateFields(name: String, email: String)
+    func presentationRouteToCheckinSuccess()
 }
 
-class EventCheckinPresenter: EventCheckinPresentationLogic {
+protocol EventCheckinDataPassing {
+    var dataStore: EventCheckinDataSource? { get set }
+}
+
+class EventCheckinPresenter: NSObject, EventCheckinPresentationLogic, EventCheckinDataPassing{
+   
     weak var viewController: EventCheckinDisplayLogic?
+    var dataStore: EventCheckinDataSource?
+    var interactor: EventCheckinBusinessLogic?
+    var router: EventCheckinRoutingLogic?
+    
+    func presentationStarFlow() {
+        interactor?.startFlow()
+    }
     
     func presentCheckin(eventId: String) {
         viewController?.displayEventIdViewModel(eventId)
+    }
+    
+    func presentationDoCheckin(model: EventCheckinModel.ViewModel){
+        interactor?.doPostCheckin(model: model)
     }
     
     func presentCheckinSucces() {
@@ -30,11 +48,15 @@ class EventCheckinPresenter: EventCheckinPresentationLogic {
         viewController?.displayEventCheckInFailure()
     }
     
-    func presentValueFieldsValid() {
-        viewController?.displayValueFieldsValid()
+    func presentationValidateFields(name: String, email: String){
+        if name.isEmpty || email.isEmpty {
+            viewController?.displayValueFieldsInvalid()
+        } else {
+            viewController?.displayValueFieldsValid()
+        }
     }
     
-    func presentValueFieldInvalid() {
-        viewController?.displayValueFieldsInvalid()
+    func presentationRouteToCheckinSuccess(){
+        router?.routeToCheckinSuccess()
     }
 }

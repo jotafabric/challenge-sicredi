@@ -23,16 +23,16 @@ class EventDetailInteractor: EventDetailDataStore, EventDetailBusinessLogic {
     
     func startFlow() {
         if let model = event {
-            presenter?.presentEventDetail(event: model)
+            presenter?.presentationEventDetail(event: model)
         }
     }
     
     func getAddress() {
         if let model = event {
             worker.getAddress(lat: model.lat!, long: model.long!) { address in
-                self.presenter?.presentSuccessGetAddress(address)
+                self.presenter?.presentationSuccessGetAddress(address)
             } failure: {
-                self.presenter?.presentFailureGetAddress()
+                self.presenter?.presentationFailureGetAddress()
             }
         }
     }

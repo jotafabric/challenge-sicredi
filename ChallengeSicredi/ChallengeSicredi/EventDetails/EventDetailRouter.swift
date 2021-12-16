@@ -10,14 +10,10 @@ import UIKit
 
 protocol EventDetailRoutingLogic {
     func routeToEventCheckin(eventId: String)
-    func routeToShareEvent(title: String, address: String, date: String)
+    func routeToShareEvent(items: [String])
 }
 
-protocol EventDetailDataPassing {
-    var dataStore: EventDetailDataStore? { get set }
-}
-
-class EventDetailRouter: NSObject, EventDetailRoutingLogic, EventDetailDataPassing {
+class EventDetailRouter: EventDetailRoutingLogic {
     
     weak var viewController: EventDetailViewController?
     var dataStore: EventDetailDataStore?
@@ -26,7 +22,7 @@ class EventDetailRouter: NSObject, EventDetailRoutingLogic, EventDetailDataPassi
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let nextViewController = storyboard.instantiateViewController(withIdentifier: "EventCheckinViewController")
             as? EventCheckinViewController {
-            nextViewController.router?.dataStore?.eventId = eventId
+            nextViewController.presenter?.dataStore?.eventId = eventId
             
             if let sheet = nextViewController.sheetPresentationController {
                 sheet.detents = [ .medium() ]
@@ -36,8 +32,7 @@ class EventDetailRouter: NSObject, EventDetailRoutingLogic, EventDetailDataPassi
         }
     }
     
-    func routeToShareEvent(title: String, address: String, date: String) {
-        let items = [title, address, date]
+    func routeToShareEvent(items: [String]) {
         let action = UIActivityViewController(activityItems: items, applicationActivities: nil)
         viewController?.present(action, animated: true)
     }
