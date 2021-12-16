@@ -8,19 +8,14 @@
 import Foundation
 
 protocol EventCheckinRoutingLogic {
-    func routeToSuccessCheckin()
+    func routeToCheckinSuccess()
 }
 
-protocol EventCheckinDataPassing {
-    var dataStore: EventCheckinDataSource? {get set }
-}
-
-class EventCheckinRouter: NSObject, EventCheckinRoutingLogic, EventCheckinDataPassing {
+class EventCheckinRouter: EventCheckinRoutingLogic {
     
     weak var viewController: EventCheckinViewController?
-    var dataStore: EventCheckinDataSource?
     
-    func routeToSuccessCheckin() {
+    func routeToCheckinSuccess() {
         viewController?.dismiss(animated: true, completion: nil)
     }
 }

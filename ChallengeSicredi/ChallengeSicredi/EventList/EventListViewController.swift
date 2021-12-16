@@ -18,8 +18,7 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    var interactor: EventListBusinessLogic?
-    var router: (NSObjectProtocol & EventListRoutingLogic & EventListDataPassing)?
+    var presenter: EventListPresentationLogic?
     
     var viewModel: [Event]? {
         didSet{
@@ -29,21 +28,11 @@ class EventListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let viewController = self
-        let interactor = EventListInteractor()
-        let presenter = EventListPresenter()
-        let router = EventListRouter()
-        
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-        
-        interactor.fetchList()
-        
+        setup()
+        presenter?.presentationFetchList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -54,6 +43,23 @@ class EventListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationItem.title = "Challenge Sicredi"
+    }
+    
+    fileprivate func setup() {
+        let viewController = self
+        let interactor = EventListInteractor()
+        let presenter = EventListPresenter()
+        let router = EventListRouter()
+        
+        viewController.presenter = presenter
+        
+        presenter.viewController = viewController
+        presenter.interactor = interactor
+        presenter.router = router
+        
+        interactor.presenter = presenter
+        
+        router.viewController = viewController
     }
     
     func setupViewFromViewModel() {
@@ -100,7 +106,7 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let event = viewModel?[indexPath.row]{
-            router?.routeToEventDetail(model: event)
+            presenter?.presentationRouteToEventDetail(model: event)
         }
     }
 }

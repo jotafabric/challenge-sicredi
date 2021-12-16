@@ -22,9 +22,7 @@ class EventCheckinViewController: UIViewController{
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var checkinButton: UIButton!
     
-    var interactor: EventCheckinBusinessLogic?
-    var router: (NSObjectProtocol & EventCheckinRoutingLogic & EventCheckinDataPassing)?
-    
+    var presenter: (NSObjectProtocol & EventCheckinPresentationLogic & EventCheckinDataPassing)?
     var model: EventCheckinModel.ViewModel?
     
     var eventId: String? {
@@ -35,14 +33,13 @@ class EventCheckinViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.startFlow()
+        presenter?.presentationStarFlow()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setupTextFields()
     }
     
-    // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -59,12 +56,16 @@ class EventCheckinViewController: UIViewController{
         let presenter = EventCheckinPresenter()
         let router = EventCheckinRouter()
         
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
+        viewController.presenter = presenter
+        
         presenter.viewController = viewController
+        presenter.router = router
+        presenter.interactor = interactor
+        presenter.dataStore = interactor
+        
+        interactor.presenter = presenter
+
         router.viewController = viewController
-        router.dataStore = interactor
     }
     
     private func setupViewModelEventId() {
@@ -74,8 +75,8 @@ class EventCheckinViewController: UIViewController{
     @IBAction func tapCheckinButton(_ sender: Any) {
         model?.personName = nameText.text!
         model?.personEmail = emailText.text!
-
-        interactor?.doPostCheckin(model: model!)
+        
+        presenter?.presentationDoCheckin(model: model!)
     }
     
     func setupTextFields() {
@@ -85,7 +86,7 @@ class EventCheckinViewController: UIViewController{
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        interactor?.validateFields(name: nameText.text!, email: emailText.text!)
+        presenter?.presentationValidateFields(name: nameText.text!, email: emailText.text!)
     }
 }
 
@@ -96,7 +97,7 @@ extension EventCheckinViewController: EventCheckinDisplayLogic {
     }
     
     func displayEventCheckinSuccess() {
-        self.router?.routeToSuccessCheckin()
+        presenter?.presentationRouteToCheckinSuccess()
     }
     
     func displayEventCheckInFailure() {

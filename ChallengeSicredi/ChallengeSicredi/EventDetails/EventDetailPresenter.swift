@@ -8,16 +8,36 @@
 import Foundation
 
 protocol EventDetailPresantationLogic {
-    func presentEventDetail(event: Event)
-    func presentSuccessGetAddress(_ address: String)
-    func presentFailureGetAddress()
+    func presentationStarFlow()
+    func presentationEventDetail(event: Event)
+    func presentationGetAddress()
+    func presentationSuccessGetAddress(_ address: String)
+    func presentationFailureGetAddress()
+    func presentationRouteToEventCheckin(eventId: String)
+    func presentationRouteToShareEvent(items: [String])
 }
 
-class EventDetailPresenter: EventDetailPresantationLogic {
+protocol EventDetailDataPassing {
+    var dataStore: EventDetailDataStore? { get set }
+}
+
+class EventDetailPresenter: NSObject, EventDetailPresantationLogic, EventDetailDataPassing {
     
     weak var viewController: EventDetailDisplayLogic?
     
-    func presentEventDetail(event: Event) {
+    var interactor: EventDetailBusinessLogic?
+    var router: EventDetailRoutingLogic?
+    var dataStore: EventDetailDataStore?
+    
+    func presentationStarFlow(){
+        interactor?.startFlow()
+    }
+    
+    func presentationGetAddress(){
+        interactor?.getAddress()
+    }
+    
+    func presentationEventDetail(event: Event) {
         let description = event.description ?? ""
         let title = event.title ?? ""
         let price = event.price?.currencyValue ?? ""
@@ -31,12 +51,20 @@ class EventDetailPresenter: EventDetailPresantationLogic {
         viewController?.displayEventDetails(viewModel: viewModel)
     }
     
-    func presentSuccessGetAddress(_ address: String) {
+    func presentationSuccessGetAddress(_ address: String) {
         viewController?.displayAddress(address)
     }
     
-    func presentFailureGetAddress() {
+    func presentationFailureGetAddress() {
         viewController?.displayNoAddress()
+    }
+    
+    func presentationRouteToEventCheckin(eventId: String){
+        router?.routeToEventCheckin(eventId: eventId)
+    }
+    
+    func presentationRouteToShareEvent(items: [String]){
+        router?.routeToShareEvent(items: items)
     }
     
 }
